@@ -3,6 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, ReactNode } from "react";
 
+/* ─── Shared constants ─── */
+const EASE_OUT_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
+const REVEAL_DURATION = 0.8;
+const STAGGER_DELAY = 0.1;
+const VIEW_MARGIN = "-60px 0px";
+
+/* ─── ScrollReveal (default export) ─── */
 interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
@@ -21,7 +28,7 @@ export default function ScrollReveal({
   once = true,
 }: ScrollRevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once, margin: "-60px 0px" });
+  const isInView = useInView(ref, { once, margin: VIEW_MARGIN });
 
   const directionMap = {
     up: { y: distance, x: 0 },
@@ -43,9 +50,9 @@ export default function ScrollReveal({
           : { opacity: 0, ...offset }
       }
       transition={{
-        duration: 0.7,
+        duration: REVEAL_DURATION,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        ease: EASE_OUT_EXPO,
       }}
     >
       {children}
@@ -53,17 +60,20 @@ export default function ScrollReveal({
   );
 }
 
-export function StaggerContainer({
-  children,
-  className = "",
-  staggerDelay = 0.1,
-}: {
+/* ─── StaggerContainer ─── */
+interface StaggerContainerProps {
   children: ReactNode;
   className?: string;
   staggerDelay?: number;
-}) {
+}
+
+export function StaggerContainer({
+  children,
+  className = "",
+  staggerDelay = STAGGER_DELAY,
+}: StaggerContainerProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px 0px" });
+  const isInView = useInView(ref, { once: true, margin: VIEW_MARGIN });
 
   return (
     <motion.div
@@ -83,13 +93,13 @@ export function StaggerContainer({
   );
 }
 
-export function StaggerItem({
-  children,
-  className = "",
-}: {
+/* ─── StaggerItem ─── */
+interface StaggerItemProps {
   children: ReactNode;
   className?: string;
-}) {
+}
+
+export function StaggerItem({ children, className = "" }: StaggerItemProps) {
   return (
     <motion.div
       className={className}
@@ -98,8 +108,90 @@ export function StaggerItem({
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+          transition: { duration: 0.6, ease: EASE_OUT_EXPO },
         },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ─── SlideReveal ─── */
+interface SlideRevealProps {
+  children: ReactNode;
+  className?: string;
+  direction?: "left" | "right";
+  delay?: number;
+  distance?: number;
+  once?: boolean;
+}
+
+export function SlideReveal({
+  children,
+  className = "",
+  direction = "left",
+  delay = 0,
+  distance = 80,
+  once = true,
+}: SlideRevealProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once, margin: VIEW_MARGIN });
+
+  const xOffset = direction === "left" ? -distance : distance;
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0, x: xOffset }}
+      animate={
+        isInView
+          ? { opacity: 1, x: 0 }
+          : { opacity: 0, x: xOffset }
+      }
+      transition={{
+        duration: REVEAL_DURATION,
+        delay,
+        ease: EASE_OUT_EXPO,
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ─── ScaleReveal ─── */
+interface ScaleRevealProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  once?: boolean;
+}
+
+export function ScaleReveal({
+  children,
+  className = "",
+  delay = 0,
+  once = true,
+}: ScaleRevealProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once, margin: VIEW_MARGIN });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={
+        isInView
+          ? { opacity: 1, scale: 1 }
+          : { opacity: 0, scale: 0.8 }
+      }
+      transition={{
+        duration: REVEAL_DURATION,
+        delay,
+        ease: EASE_OUT_EXPO,
       }}
     >
       {children}

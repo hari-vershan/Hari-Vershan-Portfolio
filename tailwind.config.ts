@@ -22,12 +22,21 @@ const config: Config = {
       },
       animation: {
         "gradient-shift": "gradientShift 8s ease infinite",
+        "float": "float 20s ease-in-out infinite",
+        "float-slow": "floatSlow 25s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 8s ease-in-out infinite",
+        "shimmer": "shimmer 2s linear infinite",
+        "spin-slow": "spin-slow 30s linear infinite",
       },
       keyframes: {
         gradientShift: {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
         },
+      },
+      transitionTimingFunction: {
+        "out-expo": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "out-quint": "cubic-bezier(0.22, 1, 0.36, 1)",
       },
     },
   },

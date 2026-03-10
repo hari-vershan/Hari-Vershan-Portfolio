@@ -5,6 +5,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation";
 import AccessibilityMenu from "@/components/AccessibilityMenu";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const syne = Syne({ subsets: ["latin"], variable: "--font-syne", display: "swap" });
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
@@ -20,8 +21,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable} ${jetbrains.variable}`}>
-      <body className="font-body">
+      <body className="font-body noise-overlay">
         <ThemeProvider>
+          <LoadingScreen />
           <AccessibilityMenu />
           <Navigation />
           <main className="min-h-screen">{children}</main>
