@@ -4,8 +4,6 @@ import { GeistMono } from "geist/font/mono";
 import { Orbitron } from "next/font/google";
 import "./globals.css";
 
-const geistSans = GeistSans;
-const geistMono = GeistMono;
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron", weight: ["400", "500", "600", "700", "800", "900"] });
 
 export const metadata: Metadata = {
@@ -23,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${orbitron.variable}`}>
       <body>
         <a href="#standings" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-papaya focus:text-bg focus:px-4 focus:py-2 focus:rounded-sm">
           Skip to content

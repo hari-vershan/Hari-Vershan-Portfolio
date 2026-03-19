@@ -4,14 +4,14 @@
   --color-bg: #0A0A0A;
   --color-surface: #141414;
   --color-papaya: #FF8000;
-  --color-papaya-safe: #FFa033;
+  --color-papaya-safe: #FFA033;
   --color-text-primary: #FFFFFF;
   --color-text-body: #E0E0E0;
   --color-text-muted: #888888;
   --color-red-light: #FF1801;
-  --font-display: 'Orbitron', 'Rajdhani', sans-serif;
-  --font-sans: 'Geist Sans', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
+  --font-display: var(--font-orbitron), 'Rajdhani', sans-serif;
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
   --radius-sm: 4px;
 }
 
@@ -31,12 +31,20 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: var(--color-bg);
   color: var(--color-text-body);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
