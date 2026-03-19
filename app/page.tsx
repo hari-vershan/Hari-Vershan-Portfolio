@@ -6,18 +6,20 @@ import { CurrentLap } from "@/components/sections/current-lap";
 import { CareerTimeline } from "@/components/sections/career-timeline";
 import { TheMachine } from "@/components/sections/the-machine";
 import { TheTeam } from "@/components/sections/the-team";
+import { PitStop } from "@/components/sections/pit-stop";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <main className="min-h-screen bg-bg">
+    <main className="bg-bg">
       {!loaded && <FormationLap onComplete={() => setLoaded(true)} />}
       <ChampionshipStandings />
       <CurrentLap />
       <CareerTimeline />
       <TheMachine />
       <TheTeam />
+      <PitStop />
     </main>
   );
 }
