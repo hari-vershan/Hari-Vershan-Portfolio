@@ -5,6 +5,7 @@ import { ChampionshipStandings } from "@/components/hero/championship-standings"
 import { CurrentLap } from "@/components/sections/current-lap";
 import { CareerTimeline } from "@/components/sections/career-timeline";
 import { TheMachine } from "@/components/sections/the-machine";
+import { TheTeam } from "@/components/sections/the-team";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
@@ -16,6 +17,7 @@ export default function Home() {
       <CurrentLap />
       <CareerTimeline />
       <TheMachine />
+      <TheTeam />
     </main>
   );
 }
