@@ -1,7 +1,15 @@
+"use client";
+import { useState } from "react";
+import { FormationLap } from "@/components/loader/formation-lap";
+import { ChampionshipStandings } from "@/components/hero/championship-standings";
+
 export default function Home() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
-    <main className="min-h-screen bg-bg text-text-body">
-      <h1 className="text-4xl font-bold text-text-primary p-8">Hari Vershan — Coming Soon</h1>
+    <main className="min-h-screen bg-bg">
+      {!loaded && <FormationLap onComplete={() => setLoaded(true)} />}
+      <ChampionshipStandings />
     </main>
   );
 }
