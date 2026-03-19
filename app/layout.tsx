@@ -10,8 +10,12 @@ import { TelemetryBar } from "@/components/nav/telemetry-bar";
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-orbitron", weight: ["400", "500", "600", "700", "800", "900"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://harivershan.com"),
   title: "Hari Vershan — Product Design Lead | AI-Driven Design",
   description: "Portfolio of Hari Vershan, Product Design Lead with 9+ years of experience in enterprise SaaS, AI-driven products, and design leadership.",
+  alternates: {
+    canonical: "https://harivershan.com",
+  },
   openGraph: {
     title: "Hari Vershan — Product Design Lead | AI-Driven Design",
     description: "Portfolio of Hari Vershan, Product Design Lead with 9+ years of experience in enterprise SaaS, AI-driven products, and design leadership.",
