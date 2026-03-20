@@ -241,14 +241,14 @@ export function ChampionshipStandings() {
         </div>
       )}
 
-      {/* Profile Image — Subtle, professional race suit portrait */}
+      {/* Profile Image — Race suit portrait, right-aligned, head at name level */}
       <motion.div
-        className="absolute right-0 md:right-6 lg:right-16 bottom-0 z-[3] pointer-events-none"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 0.6, y: 0 }}
+        className="absolute right-0 md:right-0 lg:right-4 bottom-0 top-0 z-[3] pointer-events-none flex items-end"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 0.82, y: 0 }}
         transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="relative w-[280px] h-[420px] md:w-[340px] md:h-[510px] lg:w-[400px] lg:h-[600px]">
+        <div className="relative w-[320px] h-[85vh] md:w-[420px] md:h-[90vh] lg:w-[500px] lg:h-[92vh]">
           <Image
             src="/images/hari-racesuit.png"
             alt="Hari Vershan"
@@ -257,9 +257,9 @@ export function ChampionshipStandings() {
             priority
           />
           {/* Bottom fade — blends into page seamlessly */}
-          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" style={{ top: '60%' }} />
-          {/* Top fade — subtle blend at shoulders */}
-          <div className="absolute inset-0 bg-gradient-to-b from-bg/30 to-transparent" style={{ bottom: '70%' }} />
+          <div className="absolute inset-x-0 bottom-0 h-[25%] bg-gradient-to-t from-bg via-bg/60 to-transparent" />
+          {/* Top fade — gentle blend at head */}
+          <div className="absolute inset-x-0 top-0 h-[15%] bg-gradient-to-b from-bg/50 to-transparent" />
         </div>
       </motion.div>
 
