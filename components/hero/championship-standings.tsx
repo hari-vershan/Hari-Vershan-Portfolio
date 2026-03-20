@@ -241,58 +241,25 @@ export function ChampionshipStandings() {
         </div>
       )}
 
-      {/* Profile Image — Large cinematic portrait placement */}
+      {/* Profile Image — Subtle, professional race suit portrait */}
       <motion.div
-        className="absolute right-4 md:right-12 lg:right-20 bottom-[12%] md:bottom-[8%] z-[4]"
-        initial={{ opacity: 0, y: 30, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute right-0 md:right-6 lg:right-16 bottom-0 z-[3] pointer-events-none"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 0.6, y: 0 }}
+        transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="relative">
-          {/* Outer pulsing glow */}
-          <motion.div
-            className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-papaya/15 via-papaya/5 to-transparent blur-2xl"
-            animate={{
-              opacity: [0.5, 0.8, 0.5],
-              scale: [1, 1.05, 1],
-            }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            aria-hidden="true"
+        <div className="relative w-[280px] h-[420px] md:w-[340px] md:h-[510px] lg:w-[400px] lg:h-[600px]">
+          <Image
+            src="/images/hari-racesuit.png"
+            alt="Hari Vershan"
+            fill
+            className="object-contain object-bottom"
+            priority
           />
-          {/* Decorative border rings */}
-          <motion.div
-            className="absolute -inset-2 rounded-2xl border border-papaya/20"
-            animate={{
-              opacity: [0.3, 0.1, 0.3],
-            }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            aria-hidden="true"
-          />
-          {/* Profile image — large prominent card */}
-          <div className="relative w-44 h-56 md:w-56 md:h-72 lg:w-64 lg:h-80 rounded-2xl overflow-hidden ring-1 ring-papaya/30 shadow-[0_0_60px_rgba(255,128,0,0.15)]">
-            <Image
-              src="/images/hari-headshot.png"
-              alt="Hari Vershan — Product Design Lead"
-              fill
-              className="object-cover object-top"
-              priority
-            />
-            {/* Bottom gradient blend */}
-            <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-transparent to-transparent" />
-            {/* Papaya overlay for theme cohesion */}
-            <div className="absolute inset-0 bg-gradient-to-br from-papaya/5 to-transparent mix-blend-overlay" />
-          </div>
-          {/* Name label under photo */}
-          <motion.div
-            className="absolute -bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            <span className="font-mono text-[10px] text-papaya-safe/50 tracking-[0.3em] uppercase">
-              Hari Vershan SR
-            </span>
-          </motion.div>
+          {/* Bottom fade — blends into page seamlessly */}
+          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" style={{ top: '60%' }} />
+          {/* Top fade — subtle blend at shoulders */}
+          <div className="absolute inset-0 bg-gradient-to-b from-bg/30 to-transparent" style={{ bottom: '70%' }} />
         </div>
       </motion.div>
 
