@@ -21,13 +21,13 @@ export function FormationLap({ onComplete }: FormationLapProps) {
   useEffect(() => {
     if (reduced) { skip(); return; }
 
-    // Faster timing — total ~3.5s instead of ~5.2s
+    // Smooth timing — total ~5.5s for a polished reveal
     const timers = [
-      setTimeout(() => setPhase("lights"), 600),
-      setTimeout(() => setPhase("lightsout"), 1800),
-      setTimeout(() => setPhase("text"), 2100),
-      setTimeout(() => setPhase("name"), 2800),
-      setTimeout(() => { setPhase("done"); onComplete(); }, 3500),
+      setTimeout(() => setPhase("lights"), 900),
+      setTimeout(() => setPhase("lightsout"), 2800),
+      setTimeout(() => setPhase("text"), 3200),
+      setTimeout(() => setPhase("name"), 4200),
+      setTimeout(() => { setPhase("done"); onComplete(); }, 5500),
     ];
     return () => timers.forEach(clearTimeout);
   }, [onComplete, reduced, skip]);
@@ -40,7 +40,7 @@ export function FormationLap({ onComplete }: FormationLapProps) {
         <motion.div
           className="fixed inset-0 z-[100] bg-bg flex items-center justify-center overflow-hidden"
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.7 }}
           aria-hidden="true"
         >
           {/* Full-screen race car background */}
@@ -119,12 +119,12 @@ export function FormationLap({ onComplete }: FormationLapProps) {
                   }}
                   transition={{
                     opacity: {
-                      duration: phase === "lightsout" ? 0.08 : 0.2,
-                      delay: phase === "lightsout" ? 0 : i * 0.2,
+                      duration: phase === "lightsout" ? 0.12 : 0.3,
+                      delay: phase === "lightsout" ? 0 : i * 0.3,
                     },
                     scale: {
-                      duration: 0.2,
-                      delay: phase === "lightsout" ? 0 : i * 0.2,
+                      duration: 0.3,
+                      delay: phase === "lightsout" ? 0 : i * 0.3,
                     },
                   }}
                 >
@@ -154,7 +154,7 @@ export function FormationLap({ onComplete }: FormationLapProps) {
                   "0 0 20px rgba(255,128,0,0.3)",
                 ],
               }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               LIGHTS OUT AND AWAY WE GO
             </motion.h1>
@@ -191,7 +191,7 @@ export function FormationLap({ onComplete }: FormationLapProps) {
                 className="font-display text-5xl md:text-8xl lg:text-9xl text-text-primary tracking-wider relative"
                 initial={{ scale: 1.4, opacity: 0, x: 60 }}
                 animate={{ scale: 1, opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   textShadow:
                     "0 0 30px rgba(255,128,0,0.4), 0 0 60px rgba(255,128,0,0.2)",
@@ -203,7 +203,7 @@ export function FormationLap({ onComplete }: FormationLapProps) {
                 className="h-1 bg-gradient-to-r from-transparent via-papaya to-transparent mx-auto mt-4"
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: "70%", opacity: 1 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.25 }}
               />
             </motion.div>
           )}
