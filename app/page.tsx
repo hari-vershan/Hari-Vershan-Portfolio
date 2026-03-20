@@ -6,6 +6,7 @@ import { CurrentLap } from "@/components/sections/current-lap";
 import { CareerTimeline } from "@/components/sections/career-timeline";
 import { TheMachine } from "@/components/sections/the-machine";
 import { TheTeam } from "@/components/sections/the-team";
+import { PastCircuits } from "@/components/sections/past-circuits";
 import { PitStop } from "@/components/sections/pit-stop";
 
 export default function Home() {
@@ -14,11 +15,13 @@ export default function Home() {
   return (
     <main className="bg-bg">
       {!loaded && <FormationLap onComplete={() => setLoaded(true)} />}
+
       <ChampionshipStandings />
       <CurrentLap />
       <CareerTimeline />
       <TheMachine />
       <TheTeam />
+      <PastCircuits />
       <PitStop />
     </main>
   );

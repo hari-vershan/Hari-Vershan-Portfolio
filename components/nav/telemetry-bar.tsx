@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SECTIONS } from "@/lib/constants";
 import { useSectionObserver } from "@/lib/use-section-observer";
+import Link from "next/link";
 import { TrackMap } from "./track-map";
-import { SoundToggle } from "./sound-toggle";
 import { FullScreenMenu } from "./full-screen-menu";
 
 export function TelemetryBar() {
@@ -28,11 +28,11 @@ export function TelemetryBar() {
         }`}
         initial={{ y: -80 }}
         animate={{ y: 0 }}
-        transition={{ delay: 5, duration: 0.6 }}
+        transition={{ delay: 2.5, duration: 0.5 }}
       >
-        <a href="#standings" className="font-display text-lg text-text-primary tracking-wider" aria-label="Back to top">
+        <Link href="/#standings" className="font-display text-lg text-text-primary tracking-wider" aria-label="Back to top">
           HV
-        </a>
+        </Link>
 
         <span className="hidden md:block font-mono text-xs text-text-muted tracking-widest uppercase" aria-live="polite" aria-atomic="true">
           {currentLabel}
@@ -40,7 +40,6 @@ export function TelemetryBar() {
 
         <div className="flex items-center gap-4">
           <TrackMap />
-          <SoundToggle />
           <button
             onClick={() => setMenuOpen(true)}
             className="text-text-muted hover:text-papaya transition-colors p-2"

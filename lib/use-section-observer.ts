@@ -15,7 +15,7 @@ export function useSectionObserver(): string {
         ([entry]) => {
           if (entry.isIntersecting) setActiveSection(id);
         },
-        { threshold: 0.3 }
+        { threshold: 0.15, rootMargin: "-15% 0px -50% 0px" }
       );
       observer.observe(el);
       observers.push(observer);

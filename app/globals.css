@@ -56,3 +56,281 @@ body {
   background-color: var(--color-papaya);
   color: var(--color-bg);
 }
+
+/* F1 Speed Lines Animation */
+@keyframes speed-line {
+  0% { transform: translateX(100vw); opacity: 0; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.3; }
+  100% { transform: translateX(-100vw); opacity: 0; }
+}
+
+/* Papaya glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(255, 128, 0, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(255, 128, 0, 0.2), 0 0 40px rgba(255, 128, 0, 0.1); }
+}
+
+/* Exhaust flicker for decorative elements */
+@keyframes exhaust-flicker {
+  0%, 100% { opacity: 0.3; }
+  25% { opacity: 0.7; }
+  50% { opacity: 0.4; }
+  75% { opacity: 0.8; }
+}
+
+/* Grid line animation for backgrounds */
+@keyframes grid-scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 40px; }
+}
+
+/* Subtle float for decorative elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Racing stripe border animation */
+@keyframes racing-stripe {
+  0% { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Telemetry data flicker */
+@keyframes telemetry-flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96% { opacity: 0.4; }
+  97% { opacity: 0.9; }
+  98% { opacity: 0.3; }
+}
+
+/* Section divider — racing checkered pattern */
+.racing-divider {
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #FF8000 0px,
+    #FF8000 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  opacity: 0.3;
+}
+
+/* Glowing border for interactive cards */
+.glow-border {
+  border: 1px solid rgba(255, 128, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.glow-border:hover {
+  border-color: rgba(255, 128, 0, 0.4);
+  box-shadow: 0 0 15px rgba(255, 128, 0, 0.1), inset 0 0 15px rgba(255, 128, 0, 0.03);
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 128, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 128, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF8000;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFA033;
+}
+
+/* Focus visible ring for accessibility */
+:focus-visible {
+  outline: 2px solid #FF8000;
+  outline-offset: 2px;
+}
+
+/* Scan line overlay for cinematic feel */
+.scan-lines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Noise texture overlay */
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Cinematic gradient overlay */
+.cinematic-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.9) 0%,
+    rgba(10, 10, 10, 0.5) 30%,
+    rgba(10, 10, 10, 0.3) 50%,
+    rgba(10, 10, 10, 0.5) 70%,
+    rgba(10, 10, 10, 0.95) 100%
+  );
+}
+
+/* Speed line animation for horizontal movement */
+@keyframes speed-streak {
+  0% { transform: translateX(-100%); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+/* Papaya gradient text */
+.text-gradient-papaya {
+  background: linear-gradient(135deg, #FF8000, #FFA033, #FF6600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section background with subtle radial glow */
+.section-glow {
+  position: relative;
+}
+.section-glow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 50%;
+  background: radial-gradient(ellipse, rgba(255, 128, 0, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Animated border for cards */
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(255, 128, 0, 0.1); }
+  50% { border-color: rgba(255, 128, 0, 0.3); }
+}
+
+/* Shimmer sweep — light bar races across */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Pulse ring — expanding circle */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Heat haze — subtle Y distortion */
+@keyframes heat-haze {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  25% { transform: translateY(-1px) scaleY(1.002); }
+  75% { transform: translateY(1px) scaleY(0.998); }
+}
+
+/* Infinite marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Draw line — for path reveals */
+@keyframes draw-line {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Shimmer text utility */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #FF8000 0%,
+    #FFA033 25%,
+    #FFD700 50%,
+    #FFA033 75%,
+    #FF8000 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text-move 3s ease-in-out infinite;
+}
+
+@keyframes shimmer-text-move {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+/* Shimmer bar overlay for buttons/cards */
+.shimmer-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 55%,
+    transparent 100%
+  );
+  animation: shimmer-sweep 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Magnetic hover — slight pull toward cursor */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Glow input focus */
+.glow-input:focus {
+  border-color: #FF8000;
+  box-shadow: 0 0 0 3px rgba(255, 128, 0, 0.15), 0 0 20px rgba(255, 128, 0, 0.1);
+}
+
+/* Card 3D perspective container */
+.perspective-container {
+  perspective: 1000px;
+}
+
+/* Glossy card reflection */
+.card-reflection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+}
